@@ -1,8 +1,8 @@
-package com.cudnik.chat.message;
+package com.cudnik.chat.message.entity;
 
 import com.cudnik.base.entity.BaseEntity;
 import com.cudnik.chat.entity.Chat;
-import com.cudnik.user.UserDetails;
+import com.cudnik.user.user_details.entity.UserDetails;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -28,6 +28,21 @@ public class Message extends BaseEntity {
         this.userDetails = userDetails;
         this.sendDate = sendDate;
         this.message = message;
+    }
+
+    public Message(UserDetails userDetails, Date sendDate, String message, Chat chat) {
+        this.userDetails = userDetails;
+        this.sendDate = sendDate;
+        this.message = message;
+        this.chat = chat;
+    }
+
+    public Chat getChat() {
+        return chat;
+    }
+
+    public void setChat(Chat chat) {
+        this.chat = chat;
     }
 
     public UserDetails getUserDetails() {

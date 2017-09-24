@@ -1,12 +1,9 @@
 package com.cudnik.chat.entity;
 
 import com.cudnik.base.entity.BaseEntity;
-import com.cudnik.chat.message.Message;
-import com.cudnik.user.UserDetails;
-import sun.rmi.log.LogInputStream;
+import com.cudnik.chat.message.entity.Message;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -20,6 +17,21 @@ public class Chat extends BaseEntity {
 //    @OneToMany(mappedBy = "chats", cascade = CascadeType.ALL)
 //    private Set<UserDetails> users;
 
-    @OneToMany(mappedBy = "chat", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "chat", cascade = CascadeType.ALL)
     private Set<Message> messages;
+
+    public Chat() {
+    }
+
+    public Chat(Set<Message> messages) {
+        this.messages = messages;
+    }
+
+    public Set<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(Set<Message> messages) {
+        this.messages = messages;
+    }
 }

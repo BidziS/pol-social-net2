@@ -2,6 +2,7 @@ package com.cudnik.user;
 
 import com.cudnik.authority.Authority;
 import com.cudnik.base.entity.BaseEntity;
+import com.cudnik.user.user_details.entity.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
